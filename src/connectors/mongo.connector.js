@@ -22,5 +22,6 @@ const getDb = () => {
     throw 'No database found!';
   };
 export const mongoConnector = {
-    connection, getDb
+    connection,
+    getDb
 };

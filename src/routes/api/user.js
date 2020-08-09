@@ -37,8 +37,8 @@ usersRouter.post(
     '/update',
     asyncHandler(async (req, res) => {
         const user = req.body;
-        const users = await userService.updateUser(user);
-        res.send(users);
+        const updatedCount = await userService.updateUser(user);
+        res.send({result: updatedCount + ' users Updated'});
     })
 );
 // Delete one user
@@ -46,7 +46,7 @@ usersRouter.post(
     '/delete',
     asyncHandler(async (req, res) => {
         const uid = req.body;
-        const users = await userService.deleteUser(uid);
-        res.send(users);
+        const deletedCount = await userService.deleteUser(uid);
+        res.send({result: deletedCount + ' users deleted'});
     })
 );

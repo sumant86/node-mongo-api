@@ -8,8 +8,8 @@ export const productsRouter = express.Router();
 productsRouter.get(
     '/',
     asyncHandler(async (req, res) => {
-        const books = await productService.getProducts();
-        res.send(books);
+        const products = await productService.getProducts();
+        res.send(products);
     })
 );
 
@@ -18,7 +18,7 @@ productsRouter.get(
     '/:id',
     asyncHandler(async (req, res) => {
         const { id } = req.params;
-        const book = await productService.getProduct(id);
-        res.send(book);
+        const product = await productService.getProduct(id);
+        res.send(product);
     })
 );

@@ -9,7 +9,6 @@ function getUsers() {
 }
 
 function addUser(user) {
-    console.log("Service", user);
     return userRepository.addUser(user);
 }
 

@@ -2,9 +2,15 @@
   "name": "node-mongo-api",
   "version": "1.0.0",
   "description": "Node Mongo-Atlas based API",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node  --inspect src/server.js",
+    "prebuild": "rimraf dist",
+    "build": "npm run lint && babel src --out-dir dist && npm run copy-to-dist",
+    "serve": "node dist/server.js",
+    "lint": "eslint src --ext .js",
+    "prettier": "prettier --write src/**/*.js",
+    "copy-to-dist": "copyfiles --up 1 src/.env dist"
   },
   "repository": {
     "type": "git",
@@ -18,10 +24,21 @@
   },
   "homepage": "https://github.com/sumant86/node-mongo-api#readme",
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
-    "nodemon": "^2.0.4"
+    "babel-eslint": "^10.1.0",
+    "copyfiles": "^2.3.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -30,5 +47,10 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "mongodb": "^3.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

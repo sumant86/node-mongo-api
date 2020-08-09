@@ -1,4 +1,5 @@
 # node-mongo-api
+
 A kick start project for implementation of RESTful API with Node.js using ES6.
 Features include:
 
@@ -7,10 +8,10 @@ Features include:
 -   RESTful APIs are implemented using the [Express](http://expressjs.com/)
     framework.
 -   MongoDB adaptor is provided to connect with database. current configuration
-    is for [MongoDB Cloud Cluster](https://cloud.mongodb.com/)
-    Database credentials need to be updated in `.env` file
+    is for [MongoDB Cloud Cluster](https://cloud.mongodb.com/) Database
+    credentials need to be updated in `.env` file
 
-## To Run the API Server
+## Dev Build
 
 ```bash
 $ npm install
@@ -23,6 +24,23 @@ the source files, the application will recompile and restart.
 To verify that the application is working correctly, point your browser to
 [http://localhost:3000/api/products/1](http://localhost:3000/api/products/1) -
 you should see a response with one product in JSON format.
+
+To debug the application in Chrome, point the browser to chrome://inspect and
+click on "Open dedicated DevTools for Node".
+
+## Production Build
+
+```bash
+$ npm run prettier
+$ npm run build
+$ npm run serve
+```
+
+## Prettier
+
+```bash
+$ npm run prettier
+```
 
 ## Folder Structure
 
@@ -53,7 +71,7 @@ layers:
     persistence for products & Mysql & MSSql connector to connect with database.
 
 -   `connectors`: The connector layer allows application to connect with
-    database for all queries. Current version is dedicated for MongoDb, it is upon
-    user to add multiple connector to achieve on flexiblity.
+    database for all queries. Current version is dedicated for MongoDb, it is
+    upon user to add multiple connector to achieve on flexiblity.
 
 -   The `utils` folder contains useful utilities and helpers.

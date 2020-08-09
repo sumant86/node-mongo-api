@@ -1,4 +1,3 @@
-
 import { config as envConfig } from 'dotenv';
 envConfig({ path: 'src/.env' });
 import { createServer } from 'http';
@@ -7,7 +6,7 @@ import { mongoConnector } from './connectors';
 const port = process.env['PORT']; // can be mapped using docker
 const app = createApp();
 const server = createServer(app);
-mongoConnector.connection(()=>{
+mongoConnector.connection(() => {
     server.listen(port, () => console.log('Listening on port ' + port));
 });
 

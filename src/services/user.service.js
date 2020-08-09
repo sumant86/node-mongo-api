@@ -25,5 +25,5 @@ export const userService = {
     getUsers,
     addUser,
     updateUser,
-    deleteUser
+    deleteUser,
 };

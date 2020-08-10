@@ -4,6 +4,10 @@ function getUser(id) {
     return userRepository.getUser(id);
 }
 
+function getUserByField(field, value) {
+    return userRepository.getUserByField(field, value);
+}
+
 function getUsers() {
     return userRepository.getUsers();
 }
@@ -22,6 +26,7 @@ function deleteUser(uid) {
 
 export const userService = {
     getUser,
+    getUserByField,
     getUsers,
     addUser,
     updateUser,

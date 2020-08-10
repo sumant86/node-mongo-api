@@ -4,6 +4,10 @@ function getUser(id) {
     return mongoWrapper.getEntity('users', id);
 }
 
+function getUserByField(field, value) {
+    return mongoWrapper.getEntityByField('users', field, value);
+}
+
 function getUsers() {
     return mongoWrapper.getEntities('users');
 }
@@ -22,6 +26,7 @@ function deleteUser(uid) {
 
 export const userRepository = {
     getUser,
+    getUserByField,
     getUsers,
     addUser,
     updateUser,

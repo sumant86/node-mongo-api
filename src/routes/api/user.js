@@ -22,6 +22,15 @@ usersRouter.get(
         res.send(user);
     })
 );
+// Get one User
+usersRouter.get(
+    '/search/:field/:value',
+    asyncHandler(async (req, res) => {
+        const { field, value } = req.params;
+        const user = await userService.getUserByField(field, value);
+        res.send(user);
+    })
+);
 
 // Add one User
 usersRouter.post(

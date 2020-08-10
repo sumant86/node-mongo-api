@@ -21,6 +21,25 @@ function getEntity(collection, id) {
 /*
  * @collection: in NoSQL it's the collestion where all the respiective
  *  entity rcords are present.its same as table in SQL.
+ * @field: any property of the entity.
+ * @value: expected value for the property of the entity.
+ */
+function getEntityByField(collection, field, value) {
+    const db = mongoConnector.getDb();
+    return db
+        .collection(collection)
+        .find({ [field]: value })
+        .toArray()
+        .then((entity) => {
+            return entity;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+/*
+ * @collection: in NoSQL it's the collestion where all the respiective
+ *  entity rcords are present.its same as table in SQL.
  */
 function getEntities(collection) {
     const db = mongoConnector.getDb();
@@ -92,6 +111,7 @@ function deleteEntity(collection, entity_id) {
 
 export const mongoWrapper = {
     getEntity,
+    getEntityByField,
     getEntities,
     addEntity,
     updateEntity,
